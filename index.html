@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jogo de Tecnologia - Desafio Digital</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+      <header>
+        <h1>Enigma Temporal</h1>
+      </header>
+
+      <section class="puzzle-box">
+        <div class="puzzle" id="puzzle-text"></div>
+      </section>
+
+      <div class="input-group">
+        <label for="answer-input">Resposta:</label>
+        <input id="answer-input" type="text" autocomplete="off" placeholder="Digite sua resposta aqui" />
+      </div>
+
+      <div class="buttons-row">
+        <button id="check-button" class="btn primary">Verificar</button>
+        <button id="next-button" class="btn" disabled>Próximo</button>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+      <div class="final-message hidden" id="final-message">
+        <h2>Parabéns!</h2>
+        <p>Você completou todos os 20 desafios da Enigma Temporal!</p>
+        <button id="restart-button" class="btn primary">Jogar novamente</button>
+      </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
