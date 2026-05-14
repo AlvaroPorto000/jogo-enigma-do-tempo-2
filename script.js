@@ -210,9 +210,10 @@ function loadLevel() {
   // Atualiza a URL
   updateUrl();
   
-  // Mostra imagem se for busca de pessoa
-  if (level.isPersonSearch && level.personImage) {
-    showPersonImage(level.personImage);
+  // Mostra imagem se houver (busca de pessoa OU imagem regular)
+  const imageName = level.personImage || level.image;
+  if (imageName) {
+    showPersonImage(imageName);
   }
 }
 
