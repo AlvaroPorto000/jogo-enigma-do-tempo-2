@@ -1,8 +1,8 @@
 :root {
   color-scheme: dark;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #101010;
-  color: #f4f4f5;
+  font-family: 'Source Code Pro', Consolas, 'Courier New', monospace;
+  background: #050505;
+  color: #e9f9e9;
 }
 
 * {
@@ -14,12 +14,129 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background: radial-gradient(circle at top, #ffffff39 0%, #101010 55%);
+  background: radial-gradient(circle at top, #1b1b1b 0%, #050505 60%);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 999;
+  pointer-events: none;
+  animation: fade-out 1.2s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.screen-fade {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 3s ease;
+}
+
+.screen-fade.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.start-screen,
+.game-screen {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.menu-card {
+  width: min(720px, calc(100vw - 32px));
+  background: #040404;
+  border: 1px solid #1c7f1c;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 0 0 1px rgba(17, 255, 17, 0.06), 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.terminal-card {
+  background: linear-gradient(180deg, #050505 0%, #111 100%);
+  border: 1px solid rgba(17, 255, 17, 0.18);
+}
+
+.terminal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(17, 255, 17, 0.12);
+}
+
+.terminal-title,
+.terminal-meta {
+  color: #8af68a;
+  font-size: 0.95rem;
+}
+
+.terminal-body {
+  padding: 16px 14px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(17, 255, 17, 0.12);
+  border-radius: 14px;
+}
+
+.cmd-line {
+  margin: 0 0 10px 0;
+  color: #c5f8c5;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+.hidden-line {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.cmd-line.visible-line {
+  opacity: 1;
+  height: auto;
+}
+
+.terminal-input-group label {
+  color: #7bf17b;
+  font-weight: 700;
+}
+
+.intro {
+  margin: 0 0 24px 0;
+  color: #c8c8cc;
+  line-height: 1.6;
 }
 
 .app-shell {
   width: min(720px, calc(100vw - 32px));
   padding: 24px;
+  background: #040404;
+  border: 1px solid #1c7f1c;
+  border-radius: 18px;
+  box-shadow: 0 0 0 1px rgba(17, 255, 17, 0.06), 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .card {
@@ -30,41 +147,13 @@ body {
   box-shadow: none;
 }
 
-header {
-  text-align: center;
-}
-
-header h1 {
-  margin: 0 0 32px 0;
-  font-size: clamp(2rem, 3vw, 3rem);
-  letter-spacing: -0.04em;
-  font-family: 'Times New Roman', Times, serif;
-  color: #f4f4f5;
-}
-
-.status-bar {
-  display: none;
-}
-
-.level {
-  display: none;
-}
-
-.progress {
-  display: none;
-}
-
 p {
-    color: #ffffff;
-}
-
-.progress-fill {
-  display: none;
+  color: #ffffff;
 }
 
 .puzzle-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(17, 255, 17, 0.18);
   border-radius: 18px;
   padding: 24px;
   margin-top: 24px;
@@ -74,7 +163,7 @@ p {
   font-size: 1.1rem;
   line-height: 1.75;
   white-space: pre-wrap;
-  color: #ffffff;
+  color: #c5f8c5;
 }
 
 .input-group {
@@ -85,17 +174,22 @@ p {
 
 label {
   font-weight: 600;
-  color: #ffffff;
+  color: #8af68a;
 }
 
 input {
   width: 100%;
   padding: 14px 16px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #111827;
-  color: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid rgba(17, 255, 17, 0.25);
+  background: #081008;
+  color: #e9f9e9;
   font-size: 1rem;
+  font-family: inherit;
+}
+
+input::placeholder {
+  color: rgba(233, 249, 233, 0.5);
 }
 
 .buttons-row {
@@ -123,7 +217,7 @@ input {
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #4d4d4d, #000000);
+  background: #166816;
 }
 
 .feedback {
@@ -141,11 +235,11 @@ input {
 }
 
 .feedback.hint {
-  color: #fbbf24;
-  background: rgba(251, 191, 36, 0.1);
+  color: #7df57d;
+  background: rgba(17, 255, 17, 0.08);
   padding: 12px;
   border-radius: 8px;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #7df57d;
 }
 
 .final-message {
