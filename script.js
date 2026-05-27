@@ -134,6 +134,20 @@ const nextButton = document.getElementById('next-button');
 const restartButton = document.getElementById('restart-button');
 const feedback = document.getElementById('feedback');
 const finalMessage = document.getElementById('final-message');
+const startScreen = document.getElementById('start-screen');
+const gameScreen = document.getElementById('game-screen');
+const startPasswordInput = document.getElementById('start-password');
+const startCmdLine1 = document.getElementById('start-cmd-line-1');
+const startCmdLine2 = document.getElementById('start-cmd-line-2');
+const startEnigma = document.getElementById('start-enigma');
+const startButton = document.getElementById('start-button');
+const startFeedback = document.getElementById('start-feedback');
+const overlay = document.getElementById('overlay');
+
+const initialPassword = '230808';
+const maxFailedBeforeReveal = 4;
+let failedStartAttempts = 0;
+let typingTimeout = null;
 
 let currentLevel = 0;
 let previousAnswers = [];
@@ -155,9 +169,9 @@ function normalize(text) {
 function calculateSimilarity(str1, str2) {
   const longer = str1.length > str2.length ? str1 : str2;
   const shorter = str1.length > str2.length ? str2 : str1;
-  
+
   if (longer.length === 0) return 1.0;
-  
+
   const editDistance = getEditDistance(longer, shorter);
   return (longer.length - editDistance) / longer.length;
 }
@@ -170,7 +184,7 @@ function getEditDistance(str1, str2) {
   for (let j = 0; j <= str2.length; j++) {
     distances[0][j] = j;
   }
-  
+
   for (let i = 1; i <= str1.length; i++) {
     for (let j = 1; j <= str2.length; j++) {
       if (str1[i - 1] === str2[j - 1]) {
@@ -184,7 +198,7 @@ function getEditDistance(str1, str2) {
       }
     }
   }
-  
+
   return distances[str1.length][str2.length];
 }
 
@@ -202,23 +216,48 @@ function loadLevel() {
   nextButton.disabled = true;
   answerInput.focus();
   finalMessage.classList.add('hidden');
-  
-  // Remove imagem anterior
+
   const oldImage = document.getElementById('person-image-container');
   if (oldImage) oldImage.remove();
-  
-  // Atualiza a URL
+
   updateUrl();
-  
-  // Mostra imagem se houver (busca de pessoa OU imagem regular)
+
   const imageName = level.personImage || level.image;
   if (imageName) {
     showPersonImage(imageName);
   }
 }
 
+function clearTyping() {
+  if (typingTimeout) {
+    clearTimeout(typingTimeout);
+    typingTimeout = null;
+  }
+}
+
+function typeText(element, text, interval = 25, callback) {
+  if (!element) return;
+  clearTyping();
+  element.textContent = '';
+  element.classList.add('visible-line');
+  element.classList.remove('hidden-line');
+
+  let index = 0;
+  function nextChar() {
+    if (index <= text.length) {
+      element.textContent = text.slice(0, index);
+      index += 1;
+      typingTimeout = setTimeout(nextChar, interval);
+    } else {
+      typingTimeout = null;
+      if (callback) callback();
+    }
+  }
+
+  nextChar();
+}
+
 function showPersonImage(imageName) {
-  // Cria um elemento de imagem se não existir
   let imageContainer = document.getElementById('person-image-container');
   if (!imageContainer) {
     imageContainer = document.createElement('div');
@@ -227,7 +266,7 @@ function showPersonImage(imageName) {
     imageContainer.style.textAlign = 'center';
     puzzleText.parentElement.appendChild(imageContainer);
   }
-  
+
   imageContainer.innerHTML = `<img src="images/${imageName}" alt="Pessoa" style="max-width: 200px; border-radius: 10px;">`;
 }
 
@@ -237,33 +276,31 @@ function checkAnswer() {
   const correctAnswers = Array.isArray(level.answer)
     ? level.answer.map(a => normalize(a))
     : [normalize(level.answer)];
-  
+
   const isCorrect = correctAnswers.some((correct) => correct === answer);
 
   if (!answer) {
-    feedback.textContent = 'Digite uma resposta antes de verificar.';
+    feedback.textContent = 'Digite uma entrada antes de confirmar.';
     feedback.className = 'feedback error';
     return;
   }
 
   if (isCorrect) {
-    feedback.textContent = '✓ Resposta correta! Clique em Próximo para continuar.';
+    feedback.textContent = '✓ Entrada aceita. Clique em Continuar para prosseguir.';
     feedback.className = 'feedback success';
     nextButton.disabled = false;
-    
-    // Armazena a resposta para a questão de iniciais
+
     previousAnswers.push(answerInput.value.toLowerCase());
   } else {
-    // Verifica se está próximo da resposta correta
     const similarities = correctAnswers.map(correct => ({
       similarity: calculateSimilarity(answer, correct),
       correct
     }));
-    
+
     const bestMatch = similarities.reduce((prev, current) => 
       current.similarity > prev.similarity ? current : prev
     );
-    
+
     if (bestMatch.similarity > 0.6) {
       feedback.textContent = `✗ Não está exatamente. ${level.hint}`;
       feedback.className = 'feedback hint';
@@ -292,17 +329,71 @@ function completeGame() {
   nextButton.disabled = true;
 }
 
+function startGame() {
+  const answer = normalize(startPasswordInput.value);
+  if (!answer) {
+    startFeedback.textContent = 'Digite o código antes de prosseguir.';
+    startFeedback.className = 'feedback error';
+    return;
+  }
+
+  if (answer === initialPassword) {
+    startScreen.classList.add('hidden');
+    gameScreen.classList.remove('hidden');
+    void gameScreen.offsetWidth;
+    gameScreen.classList.add('visible');
+    startFeedback.textContent = '';
+    currentLevel = 0;
+    previousAnswers = [];
+    failedStartAttempts = 0;
+    loadLevel();
+  } else {
+    failedStartAttempts += 1;
+    const remaining = Math.max(maxFailedBeforeReveal - failedStartAttempts, 0);
+
+    if (failedStartAttempts >= maxFailedBeforeReveal) {
+      if (startEnigma && levels.length > 0) {
+        startEnigma.textContent = 'C:\\Notebook> Dígitos 1 e 2: Somos um número primo. Se você somar nossos algarismos, o resultado é 5. Se você multiplicar nossos algarismos, o resultado é 6. O menor algarismo vem primeiro. Dígitos 3 e 4: Pegue o número de tentáculos de um polvo. Coloque um zero à esquerda para manter o padrão de dois dígitos. Dígitos 5 e 6: O valor exato da raiz cúbica de 512. Coloque um zero à esquerda para manter o padrão de dois dígitos.';
+        startEnigma.classList.add('visible-line');
+        startEnigma.classList.remove('hidden-line');
+      }
+      startFeedback.textContent = 'Código incorreto. Enigma inicial liberado.';
+      startFeedback.className = 'feedback hint';
+    } else {
+      startFeedback.textContent = `Código incorreto. Você tem ${remaining} tentativas`;
+      startFeedback.className = 'feedback error';
+    }
+  }
+}
+
 function restartGame() {
   currentLevel = 0;
   previousAnswers = [];
+  failedStartAttempts = 0;
   answerInput.disabled = false;
   checkButton.disabled = false;
-  loadLevel();
+  gameScreen.classList.remove('visible');
+  gameScreen.classList.add('hidden');
+  startScreen.classList.remove('hidden');
+  startFeedback.textContent = '';
+  feedback.textContent = '';
+  answerInput.value = '';
+  nextButton.disabled = true;
+  startPasswordInput.value = '';
+
+  if (startEnigma) {
+    startEnigma.textContent = 'C:\\Notebook> Enigma inicial bloqueado. Erre 4 vezes para liberar.';
+    startEnigma.classList.add('hidden-line');
+    startEnigma.classList.remove('visible-line');
+  }
+
+  startPasswordInput.focus();
 }
 
 checkButton.addEventListener('click', checkAnswer);
 nextButton.addEventListener('click', nextLevel);
 restartButton.addEventListener('click', restartGame);
+startButton.addEventListener('click', startGame);
 answerInput.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
     if (!nextButton.disabled) {
@@ -313,4 +404,26 @@ answerInput.addEventListener('keyup', (event) => {
   }
 });
 
-loadLevel();
+startPasswordInput.addEventListener('keyup', (event) => {
+  if (event.key === 'Enter') {
+    startGame();
+  }
+});
+
+function showStartLine(element, text, delay) {
+  if (!element) return;
+  setTimeout(() => {
+    typeText(element, text, 18);
+  }, delay);
+}
+
+window.addEventListener('load', () => {
+  if (overlay) {
+    overlay.addEventListener('animationend', () => overlay.remove());
+  }
+
+  showStartLine(startCmdLine1, 'C:\\Notebook> Acesso ao Enigma Temporal', 1000);
+  showStartLine(startCmdLine2, 'C:\\Notebook> Digite o código de entrada para desbloquear o jogo.', 2000);
+
+  startPasswordInput.focus();
+});
