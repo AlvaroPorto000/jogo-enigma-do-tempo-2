@@ -3,34 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jogo de Tecnologia - Desafio Digital</title>
+  <title>Enigma Temporal</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="app-shell">
-      <header>
-        <h1>Enigma Temporal</h1>
-      </header>
+  <div class="overlay" id="overlay"></div>
 
+  <section class="start-screen terminal-screen" id="start-screen">
+    <div class="menu-card terminal-card">
+      <div class="terminal-top">
+        <div class="terminal-title">Notebook CMD</div>
+        <div class="terminal-meta">Enigma Temporal • v1.0</div>
+      </div>
+
+      <div class="terminal-body">
+        <div class="cmd-line hidden-line" id="start-cmd-line-1">C:\Notebook> Acesso ao Enigma Temporal</div>
+        <div class="cmd-line hidden-line" id="start-cmd-line-2">C:\Notebook> Digite o código de entrada para desbloquear o jogo.</div>
+        <div class="cmd-line hidden-line" id="start-enigma">C:\Notebook> Dica bloqueado. 4 tentativas restantes.</div>
+      </div>
+
+      <div class="input-group terminal-input-group">
+        <label for="start-password">C:\Notebook\&gt;</label>
+        <input id="start-password" type="password" autocomplete="off" placeholder="Digite o código" />
+      </div>
+
+      <button id="start-button" class="btn primary">Acessar</button>
+
+      <div class="feedback" id="start-feedback"></div>
+    </div>
+  </section>
+
+  <main class="app-shell screen-fade hidden" id="game-screen">
+      <div class="terminal-top">
+        <div class="terminal-title">Notebook CMD</div>
+        <div class="terminal-meta">Questão Atual</div>
+      </div>
       <section class="puzzle-box">
         <div class="puzzle" id="puzzle-text"></div>
       </section>
 
       <div class="input-group">
-        <label for="answer-input">Resposta:</label>
-        <input id="answer-input" type="text" autocomplete="off" placeholder="Digite sua resposta aqui" />
+        <label for="answer-input">Entrada:</label>
+        <input id="answer-input" type="text" autocomplete="off" placeholder="Digite sua resposta" />
       </div>
 
       <div class="buttons-row">
-        <button id="check-button" class="btn primary">Verificar</button>
-        <button id="next-button" class="btn" disabled>Próximo</button>
+        <button id="check-button" class="btn primary">Confirmar</button>
+        <button id="next-button" class="btn" disabled>Continuar</button>
       </div>
 
       <div class="feedback" id="feedback"></div>
       <div class="final-message hidden" id="final-message">
-        <h2>Parabéns!</h2>
-        <p>Você completou todos os 20 desafios da Enigma Temporal!</p>
-        <button id="restart-button" class="btn primary">Jogar novamente</button>
+        <h2>Operação concluída</h2>
+        <p>Sequência de acesso finalizada com sucesso.</p>
+        <button id="restart-button" class="btn primary">Retornar ao acesso</button>
       </div>
   </main>
 
