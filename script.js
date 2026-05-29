@@ -105,25 +105,25 @@ const levels = [
   },
 
   {
-    question: '(criar questao)',
-    answer: 'criar',
-    hint: '',
+    question: '-3.735540 -38.457995',
+    answer: 'data center v.tal',
+    hint: 'isso parece ser alguma coodenada.',
     url: 'level17-enigma'
   },
   {
-    question: '(criar questao)',
+    question: 'escreva criar para passar',
     answer: 'criar',
     hint: '',
     url: 'level18-enigma'
   },
   {
-    question: '(criar questao)',
+    question: 'escreva criar para passar',
     answer: 'criar',
     hint: '',
     url: 'level19-enigma'
   },
   {
-    question: '(criar questao)',
+    question: 'escreva criar para passar',
     answer: 'criar',
     hint: '',
     url: 'level20-enigma'
