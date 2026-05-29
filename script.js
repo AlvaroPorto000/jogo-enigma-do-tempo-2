@@ -7,7 +7,7 @@ const levels = [
   },
   {
     question: 'MS-DOS->Windows 95->Windows XP ->?',
-    answer: '7',
+    answer: 'Windows 7',
     hint: 'quem veio depois nessa sequencia?',
     url: 'level2-storage'
   },
