@@ -37,70 +37,73 @@ const levels = [
     hint: 'analise essas letras no seu teclado.',
     url: 'level6-teclado'
   },
+    {
+    imageUrl: 'banco.jpeg',
+    imageCaption: 'O que você vê nesta imagem?',
+    answer: 'banco de dados',
+    hint: 'descreva literalmente o que você vê(é uma área da tecnologia.)',
+    url: 'level7-enigma'
+  },
   {
     question: 'Sou o cérebro do computador, resolvo contas em segundos, mas preciso esfriar para não enlouquecer. Quem sou eu?',
     answer: 'processador',
     hint: 'estou pronto para -processar- dados.',
-    url: 'level7-cpu'
+    url: 'level8-cpu'
   },
   {
     question: 'oditrevni rotinom, ?uec od roc a lauq',
     answer: 'luza',
     hint: 'não é uma cifra é oditrevni',
-    url: 'level8-oditrevni'
+    url: 'level9-oditrevni'
   },
   {
     question: 'um robô que diz a verdade em um certo padrão - às vezes mente, às vezes diz a verdade. Qual é o estado lógico deste robô?',
     answer: ['indeterminado','inconsistente','variavel','independente', 'indeterminável',
       'incerto', 'incerteza', 'superposição'],
     hint: 'É um estado da lógica quando não há resposta certa ou errada.',
-    url: 'level9-robo'
+    url: 'level10-robo'
   },
   {
     question: 'Um computador está se comunicando com você. Escute o áudio com atenção para saber que tipo de lingua é essa.',
     audioUrl: 'codigo.wav',
-    answer: 'codigo morse',
+    answer: ['codigo morse,codigo morsa'],
     hint: '"code walrus" in english.',
-    url: 'level10-code'
+    url: 'level11-code'
+  },
+    {
+    imageUrl: 'relogio.jpeg',
+    imageCaption: 'O que você pensa ao ver esta imagem?',
+    answer: ['hora do almoço,almoçar'],
+    hint: 'que horas são, o que você costuma fazer nesse horário?',
+    url: 'level12-enigma'
   },
   {
     question: 'Você encontrou um texto: "hzZzfzj-". Que linguagem é essa?',
     answer: 'base64',
     hint: 'parece um texto codificado em um tipo de codificação meia quatro.',
-    url: 'level11-codificado'
+    url: 'level13-codificado'
   },
   { 
     imageUrl: 'escola _liminar_.png',
     answer: '1805',
     hint: 'analise a imagem com atenção, elas esta corrompida, mas talvez você consiga encontrar um padrão ou uma mensagem escondida nela.',
-    url: 'level12-corrompido'
+    url: 'level14-corrompido'
   },
   { question: 'Áudio bugado, tente decifrar o que ele diz.',
     audioUrl: 'audio.mp3',
     answer: 'xuxa',
     hint: 'Ouça com atenção, talvez você precise ol-retrevni',
     hint: 'ouça com atenção, talvez você precise ol-retrevni',
-    url: 'level13-audio'
+    url: 'level15-audio'
   },
   {
     imageUrl: 'redeComputadores.jpeg',
     imageCaption: 'esta imagem representa?',
     answer: 'rede de computadores',
     hint: 'é literalmente a imagem (é uma área da tecnologia)',
-    url: 'level14-redeDeComputadores'
+    url: 'level16-redeDeComputadores'
   },
-  {
-    question: '(criar questao)',
-    answer: 'criar',
-    hint: '',
-    url: 'level15-enigma'
-  },
-  {
-    question: '(criar questao)',
-    answer: 'criar',
-    hint: '',
-    url: 'level16-enigma'
-  },
+
   {
     question: '(criar questao)',
     answer: 'criar',
@@ -117,7 +120,7 @@ const levels = [
     question: '(criar questao)',
     answer: 'criar',
     hint: '',
-    url: 'level19-virus'
+    url: 'level19-enigma'
   },
   {
     question: '(criar questao)',
@@ -143,6 +146,7 @@ const startEnigma = document.getElementById('start-enigma');
 const startButton = document.getElementById('start-button');
 const startFeedback = document.getElementById('start-feedback');
 const overlay = document.getElementById('overlay');
+const levelDisplay = document.getElementById('level-display');
 
 const initialPassword = '230808';
 const maxFailedBeforeReveal = 4;
@@ -232,6 +236,7 @@ function loadLevel() {
   nextButton.disabled = true;
   answerInput.focus();
   finalMessage.classList.add('hidden');
+  levelDisplay.textContent = `Level ${currentLevel + 1}`;
 
   const oldImage = document.getElementById('person-image-container');
   if (oldImage) oldImage.remove();
