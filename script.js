@@ -12,7 +12,7 @@ const levels = [
     url: 'level2-storage'
   },
   {
-    imageUrl: 'imagens/code.png',
+    imageUrl: 'code.png',
     imageCaption: 'procure com atenção o codigo na escuridão',
     answer: '1521946',
     hint: 'olhe com atenção o canto superior direito.',
@@ -25,7 +25,7 @@ const levels = [
     url: 'level4-hardware'
   },
   {
-    imageUrl: 'imagens/javascripit.png',
+    imageUrl: 'javascripit.png',
     imageCaption: 'Encontre o erro, se ele realmente existir.',
     answer: 'i',
     hint: 'Digite apenas o erro',
@@ -58,7 +58,7 @@ const levels = [
   },
   {
     question: 'Um computador está se comunicando com você. Escute o áudio com atenção para saber que tipo de lingua é essa.',
-    audioUrl: 'audio/codigo.wav',
+    audioUrl: 'codigo.wav',
     answer: 'codigo morse',
     hint: '"code walrus" in english.',
     url: 'level10-code'
@@ -70,20 +70,20 @@ const levels = [
     url: 'level11-codificado'
   },
   { 
-    imageUrl: 'imagens/escola _liminar_.png',
+    imageUrl: 'escola _liminar_.png',
     answer: '1805',
     hint: 'analise a imagem com atenção, elas esta corrompida, mas talvez você consiga encontrar um padrão ou uma mensagem escondida nela.',
     url: 'level12-corrompido'
   },
   { question: 'Áudio bugado, tente decifrar o que ele diz.',
-    audioUrl: 'audio/audio.mp3',
+    audioUrl: 'audio.mp3',
     answer: 'xuxa',
     hint: 'Ouça com atenção, talvez você precise ol-retrevni',
     hint: 'ouça com atenção, talvez você precise ol-retrevni',
     url: 'level13-audio'
   },
   {
-    imageUrl: 'imagens/redeComputadores.jpeg',
+    imageUrl: 'redeComputadores.jpeg',
     imageCaption: 'esta imagem representa?',
     answer: 'rede de computadores',
     hint: 'é literalmente a imagem (é uma área da tecnologia)',
