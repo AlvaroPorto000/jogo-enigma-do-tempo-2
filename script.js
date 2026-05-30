@@ -67,7 +67,7 @@ const levels = [
   {
     question: 'Um computador está se comunicando com você. Escute o áudio com atenção para saber que tipo de lingua é essa.',
     audioUrl: 'codigo.wav',
-    answer: ['codigo morse,codigo morsa'],
+    answer: ['codigo morse','codigo morsa'],
     hint: '"code walrus" in english.',
     url: 'level11-code'
   },
