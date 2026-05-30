@@ -12,18 +12,18 @@
   <section class="start-screen terminal-screen" id="start-screen">
     <div class="menu-card terminal-card">
       <div class="terminal-top">
-        <div class="terminal-title">Notebook CMD</div>
+        <div class="terminal-title">CMD</div>
         <div class="terminal-meta">Enigma Temporal • v1.0</div>
       </div>
 
       <div class="terminal-body">
-        <div class="cmd-line hidden-line" id="start-cmd-line-1">C:\Notebook> Acesso ao Enigma Temporal</div>
-        <div class="cmd-line hidden-line" id="start-cmd-line-2">C:\Notebook> Digite o código de entrada para desbloquear o jogo.</div>
-        <div class="cmd-line hidden-line" id="start-enigma">C:\Notebook> Dica bloqueado. 4 tentativas restantes.</div>
+        <div class="cmd-line hidden-line" id="start-cmd-line-1">C:\cmd> Acesso ao Enigma Temporal</div>
+        <div class="cmd-line hidden-line" id="start-cmd-line-2">C:\cmd> Digite o código de entrada para desbloquear o jogo.</div>
+        <div class="cmd-line hidden-line" id="start-enigma">C:\cmd> Dica bloqueado. 4 tentativas restantes.</div>
       </div>
 
       <div class="input-group terminal-input-group">
-        <label for="start-password">C:\Notebook\&gt;</label>
+        <label for="start-password">C:\cmd\&gt;</label>
         <input id="start-password" type="password" autocomplete="off" placeholder="Digite o código" />
       </div>
 
@@ -35,8 +35,8 @@
 
   <main class="app-shell screen-fade hidden" id="game-screen">
       <div class="terminal-top">
-        <div class="terminal-title">Notebook CMD</div>
-        <div class="terminal-meta">Questão Atual</div>
+        <div class="terminal-title">CMD</div>
+        <div class="terminal-meta" id="level-display">Level 1</div>
       </div>
       <section class="puzzle-box">
         <div class="puzzle" id="puzzle-text"></div>
@@ -54,11 +54,23 @@
 
       <div class="feedback" id="feedback"></div>
       <div class="final-message hidden" id="final-message">
-        <h2>Operação concluída</h2>
-        <p>Sequência de acesso finalizada com sucesso.</p>
-        <button id="restart-button" class="btn primary">Retornar ao acesso</button>
+        <div class="final-screen">
+          <h1>🎉 ENIGMA RESOLVIDO 🎉</h1>
+          <h2>━━━━━━━━━━━━━━━━━━━━━━━━━━</h2>
+          <p class="final-text">Parabéns! Você conseguiu decifrar todos os 20 enigmas!</p>
+          <p class="final-text">Sua missão foi cumprida com sucesso.</p>
+          <div class="final-stats">
+            <p><span class="label">Nível Final:</span> <span class="value">20/20</span></p>
+            <p><span class="label">Status:</span> <span class="value" style="color: #00ff00;">✓ COMPLETO</span></p>
+          </div>
+          <p class="final-message-closing">Você domina o enigma do tempo...</p>
+          <h2>━━━━━━━━━━━━━━━━━━━━━━━━━━</h2>
+          <button id="restart-button" class="btn primary">Retornar ao acesso</button>
+        </div>
       </div>
   </main>
+
+  <div class="notification-container" id="notification-container"></div>
 
   <script src="script.js"></script>
 </body>
