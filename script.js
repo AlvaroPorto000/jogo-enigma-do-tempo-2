@@ -1,129 +1,145 @@
 const levels = [
   {
-    question: 'Qual é o coração de um computador responsável por processar informações?',
-    answer: 'processador',
-    hint: 'Pense em algo que "processa"... comece pelo início.',
-    url: 'level1-cpu'
+    question: 'Que tipo de memória guarda dados permanentemente, mesmo desligado?',
+    answer: 'memoria não-volátil',
+    hint: 'pense no tipo de memória que não perde informações quando a energia é cortada.',
+    url: 'level1-storage'
   },
   {
-    question: 'Que tipo de memória guarda dados permanentemente, mesmo desligado?',
-    answer: 'Rom',
-    hint: 'O que você faz com coisas que quer guardar?',
+    question: 'MS-DOS->Windows 95->Windows XP ->?',
+    answer: 'Windows 7',
+    hint: 'quem veio depois nessa sequencia?',
     url: 'level2-storage'
   },
   {
-    question: 'Qual é o nome da memória rápida e temporária que desaparece quando desliga?',
-    answer: 'ram',
-    hint: 'Procure pela sigla de memória de acesso aleatório em inglês.',
-    url: 'level3-memory'
+    imageUrl: 'code.png',
+    imageCaption: 'procure com atenção o codigo na escuridão',
+    answer: '1521946',
+    hint: 'olhe com atenção o canto superior direito.',
+    url: 'level3-escuro'
   },
   {
-    question: 'Procure pela pessoa que você conhece e pergunte: "Quem foi o julião" (Foto será exibida)',
-    answer: ['Foi um heroi'],
+    question: 'Procure pelo funcionario temporal e pergunte-o:"Tenho chaves, mas não abro portas. Protejo segredos sem tocar neles. O que sou eu?"',
+    answer: ['criptografia'],
     isPersonSearch: true,
-    personImage: 'person1.png',
+    personImage: 'genio1.jpeg',
     url: 'level4-wifi'
   },
   {
-    question: 'Como chamamos a sequência de instruções que o computador executa?',
-    answer: 'programa',
-    hint: 'É o que você instala no seu PC para fazer algo.',
-    url: 'level5-program'
+    imageUrl: 'javascripit.png',
+    imageCaption: 'Encontre o erro, se ele realmente existir.',
+    answer: 'i',
+    hint: 'Digite apenas o erro',
+    url: 'level5-JS'
   },
   {
-    question: 'Que peça física conecta o computador à internet?',
-    answer: 'modem',
-    hint: 'Procure o dispositivo que recebe sinal do seu provedor de internet.',
-    url: 'level6-modem'
+    question: 'a resposta está abaixo delas "qwertyuiop"',
+    answer: 'asdfghjklç',
+    hint: 'analise essas letras no seu teclado.',
+    url: 'level6-teclado'
+  },
+    {
+    imageUrl: 'banco.jpeg',
+    imageCaption: 'O que você vê nesta imagem?',
+    answer: 'banco de dados',
+    hint: 'descreva literalmente o que você vê(é uma área da tecnologia.)',
+    url: 'level7-enigma'
   },
   {
-    question: 'Procure pela pessoa que você conhece e pergunte: "O que você mais usa para se comunicar profissionalmente?" (Foto será exibida)',
+<<<<<<< HEAD
+    question: 'Não procure no fim da estante, nem no livro mais importante. Cruze a porta com atenção,pois a dica está na entrada, então.',
     answer: ['email', 'e-mail'],
-    isPersonSearch: true,
-    personImage: 'person2.jpg',
-    hint: 'Descubra qual é o método preferido dessa pessoa para trocar informações digitalmente.',
     url: 'level7-email'
+=======
+    question: 'Sou o cérebro do computador, resolvo contas em segundos, mas preciso esfriar para não enlouquecer. Quem sou eu?',
+    answer: 'processador',
+    hint: 'estou pronto para -processar- dados.',
+    url: 'level8-cpu'
+>>>>>>> 02af270fdb8f177c6f495d6d939ba438492b0d27
   },
   {
-    question: 'Qual é a parte do computador responsável por exibir a informação?',
-    answer: 'monitor',
-    hint: 'Olhe para o que você está vendo agora enquanto lê isso.',
-    url: 'level8-monitor'
+    question: 'oditrevni rotinom, ?uec od roc a lauq',
+    answer: 'luza',
+    hint: 'não é uma cifra é oditrevni',
+    url: 'level9-oditrevni'
   },
   {
-    question: 'Na codificação digital, qual é a unidade mínima de informação?',
-    answer: 'bit',
-    hint: 'Procure o menor componente de dados na computação, antes até dos bytes.',
-    url: 'level9-bit'
+    question: 'um robô que diz a verdade em um certo padrão - às vezes mente, às vezes diz a verdade. Qual é o estado lógico deste robô?',
+    answer: ['indeterminado','inconsistente','variavel','independente', 'indeterminável',
+      'incerto', 'incerteza', 'superposição'],
+    hint: 'É um estado da lógica quando não há resposta certa ou errada.',
+    url: 'level10-robo'
   },
   {
-    question: 'Qual linguagem permite a comunicação entre humanos e máquinas?',
-    answer: 'binario',
-    hint: 'Pesquise sobre o idioma que contém apenas dois dígitos.',
-    url: 'level10-binary'
-  },
-  {
-    question: 'Procure pela pessoa que você conhece e pergunte: "Qual é o melhor editor de UX?" (Foto será exibida)',
+<<<<<<< HEAD
+    question: 'Não procure entre capa e letra, nem onde o silêncio penetra. Ao lado dos aromas da refeição, há um círculo feito para atenção. No centro ecoa a apresentação, e ali repousa a próxima direção.',
     answer: ['figma'],
-    isPersonSearch: true,
-    personImage: 'person3.jpg',
-    hint: 'Descubra qual ferramenta essa pessoa usa para criar documentos.',
     url: 'level11-editor'
+=======
+    question: 'Um computador está se comunicando com você. Escute o áudio com atenção para saber que tipo de lingua é essa.',
+    audioUrl: 'codigo.wav',
+    answer: ['codigo morse,codigo morsa'],
+    hint: '"code walrus" in english.',
+    url: 'level11-code'
+  },
+    {
+    imageUrl: 'relogio.jpeg',
+    imageCaption: 'O que você pensa ao ver esta imagem?',
+    answer: ['hora do almoço,almoçar'],
+    hint: 'que horas são, o que você costuma fazer nesse horário?',
+    url: 'level12-enigma'
+>>>>>>> 02af270fdb8f177c6f495d6d939ba438492b0d27
   },
   {
-    question: 'Como chamamos a interface visual que permite interação com o computador?',
-    answer: 'sistema operacional',
-    hint: 'Procure o software principal que gerencia o computador.',
-    url: 'level12-os'
+    question: 'Você encontrou um texto: "hzZzfzj-". Que linguagem é essa?',
+    answer: 'base64',
+    hint: 'parece um texto codificado em um tipo de codificação meia quatro.',
+    url: 'level13-codificado'
+  },
+  { 
+    imageUrl: 'escola _liminar_.png',
+    answer: '1805',
+    hint: 'analise a imagem com atenção, elas esta corrompida, mas talvez você consiga encontrar um padrão ou uma mensagem escondida nela.',
+    url: 'level14-corrompido'
+  },
+  { question: 'Áudio bugado, tente decifrar o que ele diz.',
+    audioUrl: 'audio.mp3',
+    answer: 'xuxa',
+    hint: 'Ouça com atenção, talvez você precise ol-retrevni',
+    hint: 'ouça com atenção, talvez você precise ol-retrevni',
+    url: 'level15-audio'
   },
   {
-    question: 'Qual é o protocolo padrão para transferência de informações na web?',
-    answer: 'http',
-    hint: 'Pesquise o protocolo que você vê no início de todo endereço web.',
-    url: 'level13-http'
+    imageUrl: 'redeComputadores.jpeg',
+    imageCaption: 'esta imagem representa?',
+    answer: 'rede de computadores',
+    hint: 'é literalmente a imagem (é uma área da tecnologia)',
+    url: 'level16-redeDeComputadores'
+  },
+
+  {
+    question: '-3.735540 -38.457995',
+    answer: 'data center v.tal',
+    hint: 'isso parece ser alguma coodenada.',
+    url: 'level17-enigma'
   },
   {
-    question: 'Na sombra do transistor, código flui em sussurros silenciosos, conversando em um idioma que apenas zeros e uns compreendem. Qual seria o resultado desta dança binária?',
-    answer: 'computacao',
-    hint: 'O que é o resultado quando máquinas pensam e processam?',
-    url: 'level14-enigma'
+    question: 'escreva criar para passar',
+    answer: 'criar',
+    hint: '',
+    url: 'level18-enigma'
   },
   {
-    question: 'Qual é o dispositivo responsável por fornecer energia ao computador?',
-    answer: 'fonte',
-    hint: 'Procure a origem da energia do seu computador.',
-    url: 'level15-power'
+    question: 'escreva criar para passar',
+    answer: 'criar',
+    hint: '',
+    url: 'level19-enigma'
   },
   {
-    question: 'Como chamamos a ação de se conectar a um servidor remoto de forma segura?',
-    answer: 'login',
-    hint: 'Como chamamos o ato de "entrar" em um sistema?',
-    url: 'level16-login'
-  },
-  {
-    question: 'Pegue as INICIAIS das respostas anteriores. A primeira letra é "P", a segunda é "A", terceira é "R"... Pesquise qual é a palavra completa formada por essas 16 iniciais.',
-    answer: ['palavra-chave', 'palavrachave', 'palavra chave'],
-    isAcrostic: true,
-    hint: 'Tente listar todas as primeiras letras em ordem. Veja se consegue descobrir qual palavra se encaixa com essas iniciais.',
-    url: 'level17-acrostic'
-  },
-  {
-    question: 'Qual é o programa malicioso que se propaga alterando outros programas?',
-    answer: 'virus',
-    hint: 'Procure o nome do intruso digital que infecta sistemas.',
-    url: 'level18-virus'
-  },
-  {
-    question: 'Qual é a tecnologia que permite armazenar dados em servidores remotos?',
-    answer: 'nuvem',
-    hint: 'Pesquise onde os dados são guardados "lá em cima", longe do seu computador.',
-    url: 'level19-cloud'
-  },
-  {
-    question: 'Que tipo de memória é considerada o "disco rígido moderno"?',
-    answer: 'ssd',
-    hint: 'Procure a sigla da memória de estado sólido em inglês.',
-    url: 'level20-ssd'
+    question: 'escreva criar para passar',
+    answer: 'criar',
+    hint: '',
+    url: 'level20-enigma'
   },
 ];
 
@@ -143,6 +159,7 @@ const startEnigma = document.getElementById('start-enigma');
 const startButton = document.getElementById('start-button');
 const startFeedback = document.getElementById('start-feedback');
 const overlay = document.getElementById('overlay');
+const levelDisplay = document.getElementById('level-display');
 
 const initialPassword = '230808';
 const maxFailedBeforeReveal = 4;
@@ -151,6 +168,22 @@ let typingTimeout = null;
 
 let currentLevel = 0;
 let previousAnswers = [];
+
+function showNotification(message, duration = 5000) {
+  const container = document.getElementById('notification-container');
+  const notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.textContent = message;
+  
+  container.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.classList.add('removing');
+    setTimeout(() => {
+      notification.remove();
+    }, 400);
+  }, duration);
+}
 
 function normalize(text) {
   return text
@@ -216,15 +249,22 @@ function loadLevel() {
   nextButton.disabled = true;
   answerInput.focus();
   finalMessage.classList.add('hidden');
+  levelDisplay.textContent = `Level ${currentLevel + 1}`;
 
   const oldImage = document.getElementById('person-image-container');
   if (oldImage) oldImage.remove();
 
+  const oldAudio = document.getElementById('audio-container');
+  if (oldAudio) oldAudio.remove();
+
   updateUrl();
 
-  const imageName = level.personImage || level.image;
-  if (imageName) {
-    showPersonImage(imageName);
+  if (level.imageUrl) {
+    showPersonImage(level.imageUrl, level.imageCaption);
+  }
+
+  if (level.audioUrl) {
+    showAudio(level.audioUrl);
   }
 }
 
@@ -257,17 +297,30 @@ function typeText(element, text, interval = 25, callback) {
   nextChar();
 }
 
-function showPersonImage(imageName) {
+function showPersonImage(imagePath, imageCaption) {
   let imageContainer = document.getElementById('person-image-container');
   if (!imageContainer) {
     imageContainer = document.createElement('div');
     imageContainer.id = 'person-image-container';
-    imageContainer.style.marginTop = '20px';
-    imageContainer.style.textAlign = 'center';
     puzzleText.parentElement.appendChild(imageContainer);
   }
 
-  imageContainer.innerHTML = `<img src="images/${imageName}" alt="Pessoa" style="max-width: 200px; border-radius: 10px;">`;
+  let html = `<img src="${imagePath}" alt="Pessoa">`;
+  if (imageCaption) {
+    html += `<p class="image-caption">${imageCaption}</p>`;
+  }
+  imageContainer.innerHTML = html;
+}
+
+function showAudio(audioUrl) {
+  let audioContainer = document.getElementById('audio-container');
+  if (!audioContainer) {
+    audioContainer = document.createElement('div');
+    audioContainer.id = 'audio-container';
+    puzzleText.parentElement.appendChild(audioContainer);
+  }
+
+  audioContainer.innerHTML = `<audio controls><source src="${audioUrl}" type="audio/mpeg">Seu navegador não suporta áudio.</audio>`;
 }
 
 function checkAnswer() {
@@ -308,6 +361,8 @@ function checkAnswer() {
       feedback.textContent = '✗ Resposta incorreta. Tente novamente.';
       feedback.className = 'feedback error';
     }
+
+    showNotification(`💡 Dica: ${level.hint}`, 6000);
   }
 }
 
@@ -353,7 +408,7 @@ function startGame() {
 
     if (failedStartAttempts >= maxFailedBeforeReveal) {
       if (startEnigma && levels.length > 0) {
-        startEnigma.textContent = 'C:\\Notebook> Dígitos 1 e 2: Somos um número primo. Se você somar nossos algarismos, o resultado é 5. Se você multiplicar nossos algarismos, o resultado é 6. O menor algarismo vem primeiro. Dígitos 3 e 4: Pegue o número de tentáculos de um polvo. Coloque um zero à esquerda para manter o padrão de dois dígitos. Dígitos 5 e 6: O valor exato da raiz cúbica de 512. Coloque um zero à esquerda para manter o padrão de dois dígitos.';
+        startEnigma.textContent = 'C:\\Site> Dígitos 1 e 2: Somos um número primo. Se você somar nossos algarismos, o resultado é 5. Se você multiplicar nossos algarismos, o resultado é 6. O menor algarismo vem primeiro. Dígitos 3 e 4: Pegue o número de tentáculos de um polvo. Coloque um zero à esquerda para manter o padrão de dois dígitos. Dígitos 5 e 6: O valor exato da raiz cúbica de 512. Coloque um zero à esquerda para manter o padrão de dois dígitos.';
         startEnigma.classList.add('visible-line');
         startEnigma.classList.remove('hidden-line');
       }
@@ -382,7 +437,7 @@ function restartGame() {
   startPasswordInput.value = '';
 
   if (startEnigma) {
-    startEnigma.textContent = 'C:\\Notebook> Enigma inicial bloqueado. Erre 4 vezes para liberar.';
+    startEnigma.textContent = 'C:\\Site> Enigma inicial bloqueado. Erre 4 vezes para liberar.';
     startEnigma.classList.add('hidden-line');
     startEnigma.classList.remove('visible-line');
   }
@@ -422,8 +477,8 @@ window.addEventListener('load', () => {
     overlay.addEventListener('animationend', () => overlay.remove());
   }
 
-  showStartLine(startCmdLine1, 'C:\\Notebook> Acesso ao Enigma Temporal', 1000);
-  showStartLine(startCmdLine2, 'C:\\Notebook> Digite o código de entrada para desbloquear o jogo.', 2000);
+  showStartLine(startCmdLine1, 'C:\\Site> Acesso ao Enigma Temporal', 1000);
+  showStartLine(startCmdLine2, 'C:\\Site> Digite o código de entrada para desbloquear o jogo.', 2000);
 
   startPasswordInput.focus();
 });
