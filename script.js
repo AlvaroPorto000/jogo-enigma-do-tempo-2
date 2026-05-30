@@ -74,12 +74,12 @@ const levels = [
     {
     imageUrl: 'relogio.jpeg',
     imageCaption: 'O que você pensa ao ver esta imagem?',
-    answer: ['hora do almoço,almoçar'],
+    answer: ['hora do almoço', 'almoçar'],
     hint: 'que horas são, o que você costuma fazer nesse horário?',
     url: 'level12-enigma'
   },
   {
-    question: 'Você encontrou um texto: "hzZzfzj-". Que linguagem é essa?',
+    question: 'Você encontrou um texto: "hzZzfzj-". Que linguagem é  essa?',
     answer: 'base64',
     hint: 'parece um texto codificado em um tipo de codificação meia quatro.',
     url: 'level13-codificado'
