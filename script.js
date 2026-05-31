@@ -84,50 +84,50 @@ const levels = [
     hint: 'parece um texto codificado em um tipo de codificação meia quatro.',
     url: 'level13-codificado'
   },
+    {
+    question: 'Tenho chaves, mas não abro portas. Protejo segredos sem tocar neles. O que sou eu?',
+    answer: 'Cellbit conhece muito bem',
+    hint: '',
+    url: 'level14-enigma'
+  },
   { 
     imageUrl: 'escola _liminar_.png',
     answer: '1805',
     hint: 'analise a imagem com atenção, elas esta corrompida, mas talvez você consiga encontrar um padrão ou uma mensagem escondida nela.',
-    url: 'level14-corrompido'
+    url: 'level15-corrompido'
   },
   { question: 'Áudio bugado, tente decifrar o que ele diz.',
     audioUrl: 'audio.mp3',
     answer: 'xuxa',
     hint: 'Ouça com atenção, talvez você precise ol-retrevni',
     hint: 'ouça com atenção, talvez você precise ol-retrevni',
-    url: 'level15-audio'
+    url: 'level16-audio'
   },
   {
     imageUrl: 'redeComputadores.jpeg',
     imageCaption: 'esta imagem representa?',
     answer: 'rede de computadores',
     hint: 'é literalmente a imagem (é uma área da tecnologia)',
-    url: 'level16-redeDeComputadores'
+    url: 'level17-redeDeComputadores'
   },
 
   {
     question: '-3.735540 -38.457995',
     answer: 'data center v.tal',
     hint: 'isso parece ser alguma coodenada.',
-    url: 'level17-enigma'
+    url: 'level18-Maps'
   },
   {
-    question: 'escreva criar para passar',
-    answer: 'criar',
-    hint: '',
-    url: 'level18-enigma'
-  },
-  {
-    question: 'escreva criar para passar',
-    answer: 'criar',
-    hint: '',
+    question: 'Não procure entre as capas e letras nem onde o silencio penetra. Ao lado dos aromas da refeição, há um circulo feito para atenção. No centro ecoa a apresentação, e ali repousa a proxima direção.',
+    answer: 'Vscode',
+    hint: 'Vai ter um enigma no palanque que fica do lado do refeitorio',
     url: 'level19-enigma'
   },
   {
-    question: 'escreva criar para passar',
-    answer: 'criar',
+    question: 'Não procure no fim da estante, nem no livro mais importante. Cruze a porta com atenção, pois resposta esta na entrada, então.',
+    answer: 'banco de dados',
     hint: '',
-    url: 'level20-enigma'
+    url: 'level20-final'
   },
 ];
 
