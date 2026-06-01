@@ -1,7 +1,7 @@
 const levels = [
   {
     question: 'Que tipo de memória guarda dados permanentemente, mesmo desligado?',
-    answer: 'memoria não-volátil',
+    answer: ['memoria não-volátil', 'nao volatil', 'memoria permanente', 'memoria de armazenamento'],
     hint: 'pense no tipo de memória que não perde informações quando a energia é cortada.',
     url: 'level1-storage'
   },
@@ -19,17 +19,16 @@ const levels = [
     url: 'level3-escuro'
   },
   {
-    question: 'Procure pelo funcionario temporal e pergunte-o:"Tenho chaves, mas não abro portas. Protejo segredos sem tocar neles. O que sou eu?"',
+    question: 'Tenho chaves, mas não abro portas. Protejo segredos sem tocar neles. O que sou eu?',
     answer: ['criptografia'],
-    isPersonSearch: true,
-    personImage: 'genio1.jpeg',
+    hint: 'é uma técnica usada para proteger informações, transformando-as em um formato ilegível para quem não tem a chave correta.',
     url: 'level4-wifi'
   },
   {
     imageUrl: 'javascripit.png',
     imageCaption: 'Encontre o erro, se ele realmente existir.',
-    answer: 'i',
-    hint: 'Digite apenas o erro',
+    answer: ['i','scripit'],
+    hint: 'analise o nome da imagem, tem algo errado nele.',
     url: 'level5-JS'
   },
   {
@@ -47,20 +46,20 @@ const levels = [
   },
   {
     question: 'Sou o cérebro do computador, resolvo contas em segundos, mas preciso esfriar para não enlouquecer. Quem sou eu?',
-    answer: 'processador',
+    answer: ['processador','cpu'],
     hint: 'estou pronto para -processar- dados.',
     url: 'level8-cpu'
   },
   {
     question: 'oditrevni rotinom, ?uec od roc a lauq',
     answer: 'luza',
-    hint: 'não é uma cifra é oditrevni',
+    hint: 'leia de trás para frente (não esqueça da resposta invertida.)',
     url: 'level9-oditrevni'
   },
   {
     question: 'um robô que diz a verdade em um certo padrão - às vezes mente, às vezes diz a verdade. Qual é o estado lógico deste robô?',
     answer: ['indeterminado','inconsistente','variavel','independente', 'indeterminável',
-      'incerto', 'incerteza', 'superposição'],
+      'incerto', 'incerteza', 'superposição', 'booleano', 'lógico', 'lógica', 'lógica indeterminada', 'estado indeterminado','boll','bool','boleano'],
     hint: 'É um estado da lógica quando não há resposta certa ou errada.',
     url: 'level10-robo'
   },
@@ -74,7 +73,7 @@ const levels = [
     {
     imageUrl: 'relogio.jpeg',
     imageCaption: 'O que você pensa ao ver esta imagem?',
-    answer: ['hora do almoço', 'almoçar'],
+    answer: ['hora do almoço', 'almoçar','almoço'],
     hint: 'que horas são, o que você costuma fazer nesse horário?',
     url: 'level12-enigma'
   },
@@ -85,22 +84,22 @@ const levels = [
     url: 'level13-codificado'
   },
     {
-    question: 'Tenho chaves, mas não abro portas. Protejo segredos sem tocar neles. O que sou eu?',
-    answer: 'Cellbit conhece muito bem',
-    hint: '',
+    question: 'O que é, o que é: sou executado antes mesmo do sistema operacional despertar, posso impedir uma máquina inteira de funcionar por causa de um único bit corrompido, e meu nome ainda assombra quem atualiza sem energia',
+    answer: ['BIOS','bios', 'UEFI', 'uefi'],
+    hint: 'Sou um tipo de firmware que inicializa o hardware do computador antes do sistema operacional carregar.',
     url: 'level14-enigma'
   },
   { 
-    imageUrl: 'escola _liminar_.png',
+    imageUrl: 'sala.png',
+    imageCaption: 'A imagem está corrompida, porém existe um código que você precisa usar para avançar de fase, encontre-o.' ,
     answer: '1805',
-    hint: 'analise a imagem com atenção, elas esta corrompida, mas talvez você consiga encontrar um padrão ou uma mensagem escondida nela.',
+    hint: 'analise a imagem com atenção, se for preciso utilize a ferramenta de zoom.',
     url: 'level15-corrompido'
   },
   { question: 'Áudio bugado, tente decifrar o que ele diz.',
     audioUrl: 'audio.mp3',
     answer: 'xuxa',
-    hint: 'Ouça com atenção, talvez você precise ol-retrevni',
-    hint: 'ouça com atenção, talvez você precise ol-retrevni',
+    hint: 'ouça com atenção, talvez você precise ol-retrevni. Se for preciso, pesquise em seu navegador por inverter audio.',
     url: 'level16-audio'
   },
   {
@@ -112,8 +111,8 @@ const levels = [
   },
 
   {
-    question: '-3.735540 -38.457995',
-    answer: 'data center v.tal',
+    question: '-4.2219129554010655, -38.715699624697656',
+    answer: ['EEEP Adolfo Ferreira de Souza', 'eeep adolfo ferreira de souza', 'eeep adolfo ferreira de souza', 'adolfo ferreira de souza', 'adolfo ferreira'],
     hint: 'isso parece ser alguma coodenada.',
     url: 'level18-Maps'
   },
@@ -124,7 +123,7 @@ const levels = [
     url: 'level19-enigma'
   },
   {
-    question: 'Não procure no fim da estante, nem no livro mais importante. Cruze a porta com atenção, pois resposta esta na entrada, então.',
+    question: 'Não procure no fim da estante, nem no livro mais importante. Cruze a porta com atenção, pois a dica está na entrada, então.',
     answer: 'banco de dados',
     hint: 'Infelizmente não tenho uma dica pra você :/',
     url: 'level20-final'
@@ -392,21 +391,8 @@ function startGame() {
     failedStartAttempts = 0;
     loadLevel();
   } else {
-    failedStartAttempts += 1;
-    const remaining = Math.max(maxFailedBeforeReveal - failedStartAttempts, 0);
-
-    if (failedStartAttempts >= maxFailedBeforeReveal) {
-      if (startEnigma && levels.length > 0) {
-        startEnigma.textContent = 'C:\\Site> Dígitos 1 e 2: Somos um número primo. Se você somar nossos algarismos, o resultado é 5. Se você multiplicar nossos algarismos, o resultado é 6. O menor algarismo vem primeiro. Dígitos 3 e 4: Pegue o número de tentáculos de um polvo. Coloque um zero à esquerda para manter o padrão de dois dígitos. Dígitos 5 e 6: O valor exato da raiz cúbica de 512. Coloque um zero à esquerda para manter o padrão de dois dígitos.';
-        startEnigma.classList.add('visible-line');
-        startEnigma.classList.remove('hidden-line');
-      }
-      startFeedback.textContent = 'Código incorreto. Enigma inicial liberado.';
-      startFeedback.className = 'feedback hint';
-    } else {
-      startFeedback.textContent = `Código incorreto. Você tem ${remaining} tentativas`;
-      startFeedback.className = 'feedback error';
-    }
+    startFeedback.textContent = 'Código incorreto, tente novamente.';
+    startFeedback.className = 'feedback error';
   }
 }
 
@@ -426,9 +412,9 @@ function restartGame() {
   startPasswordInput.value = '';
 
   if (startEnigma) {
-    startEnigma.textContent = 'C:\\Site> Enigma inicial bloqueado. Erre 4 vezes para liberar.';
-    startEnigma.classList.add('hidden-line');
-    startEnigma.classList.remove('visible-line');
+    startEnigma.textContent = 'C:\\Site> Dígitos 1 e 2: Somos um número primo. Se você somar nossos algarismos, o resultado é 5. Se você multiplicar nossos algarismos, o resultado é 6. O menor algarismo vem primeiro. Dígitos 3 e 4: Pegue o número de tentáculos de um polvo. Coloque um zero à esquerda para manter o padrão de dois dígitos. Dígitos 5 e 6: O valor exato da raiz cúbica de 512. Coloque um zero à esquerda para manter o padrão de dois dígitos.';
+    startEnigma.classList.add('visible-line');
+    startEnigma.classList.remove('hidden-line');
   }
 
   startPasswordInput.focus();
@@ -467,7 +453,6 @@ window.addEventListener('load', () => {
   }
 
   showStartLine(startCmdLine1, 'C:\\Site> Acesso ao Enigma Temporal', 1000);
-  showStartLine(startCmdLine2, 'C:\\Site> Digite o código de entrada para desbloquear o jogo.', 2000);
-
+  showStartLine(startCmdLine2, 'C:\\Site> Digite o código de entrada para desbloquear o jogo.', 2000);  showStartLine(startEnigma, 'C:\Site> Dígitos 1 e 2: Somos um número primo. Se você somar nossos algarismos, o resultado é 5. Se você multiplicar nossos algarismos, o resultado é 6. O menor algarismo vem primeiro. Dígitos 3 e 4: Pegue o número de tentáculos de um polvo. Coloque um zero à esquerda para manter o padrão de dois dígitos. Dígitos 5 e 6: O valor exato da raiz cúbica de 512. Coloque um zero à esquerda para manter o padrão de dois dígitos.', 3000);
   startPasswordInput.focus();
 });
