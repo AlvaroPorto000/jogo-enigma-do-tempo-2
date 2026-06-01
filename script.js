@@ -7,8 +7,8 @@ const levels = [
   },
   {
     question: 'MS-DOS->Windows 95->Windows XP ->?',
-    answer: 'Windows 7',
-    hint: 'quem veio depois nessa sequencia?',
+    answer: ['Windows 7','windows vista'],
+    hint: 'quem veio depois nessa sequencia de ',
     url: 'level2-storage'
   },
   {
@@ -33,7 +33,7 @@ const levels = [
   },
   {
     question: 'a resposta está abaixo delas "qwertyuiop"',
-    answer: 'asdfghjklç',
+    answer: ['asdfghjklç','asdfghjkl'],
     hint: 'analise essas letras no seu teclado.',
     url: 'level6-teclado'
   },
