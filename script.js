@@ -120,13 +120,13 @@ const levels = [
   {
     question: 'Não procure entre as capas e letras nem onde o silencio penetra. Ao lado dos aromas da refeição, há um circulo feito para atenção. No centro ecoa a apresentação, e ali repousa a proxima direção.',
     answer: 'Vscode',
-    hint: 'Vai ter um enigma no palanque que fica do lado do refeitorio',
+    hint: 'Infelizmente não tenho uma dica pra você :/',
     url: 'level19-enigma'
   },
   {
     question: 'Não procure no fim da estante, nem no livro mais importante. Cruze a porta com atenção, pois resposta esta na entrada, então.',
     answer: 'banco de dados',
-    hint: '',
+    hint: 'Infelizmente não tenho uma dica pra você :/',
     url: 'level20-final'
   },
 ];
